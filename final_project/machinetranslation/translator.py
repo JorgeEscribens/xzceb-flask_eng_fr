@@ -19,10 +19,10 @@ language_translator.set_disable_ssl_verification(True)
 
 def english_to_french(english_text):
     """E to F"""
-    french_text = language_translator.translate(english_text, model_id='en-fr')
-    return french_text
+    french_text = language_translator.translate(text=english_text, model_id='en-fr')
+    return french_text.get_result()['translations'][0]['translation']
 
 def french_to_english(french_text):
     """F to E"""
-    english_text = language_translator.translate(french_text, model_id='fr-en')
-    return english_text
+    english_text = language_translator.translate(text=french_text, model_id='fr-en')
+    return english_text.get_result()['translations'][0]['translation']
